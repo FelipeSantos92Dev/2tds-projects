@@ -38,3 +38,40 @@ img {
   flex-direction: column;
   padding: 2rem;
 }
+
+.input-box label {
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #cbd5e1;
+}
+
+.input-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #3f3f46;
+  padding: 0.3rem;
+  border-radius: 4px;
+  margin-top: 2px;
+}
+
+.input-field input {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  font-size: 1.3rem;
+  color: #f8fafc;
+  padding: 0 0.5rem;
+}
+
+.input-field input::-webkit-outer-spin-button,
+.input-field input::-webkit-inner-spin-button {
+  appearance: none;
+}
+
+.unit,
+.icon {
+  color: #cbd5e1;
+  font-size: 1.3rem;
+  padding: 0.6rem 1rem;
+}
