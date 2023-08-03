@@ -94,3 +94,100 @@ img {
 .input-field input:focus {
   outline: none;
 }
+
+#result {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  border-top: 1px solid #ffffff34;
+  padding: 0.75rem 0;
+}
+
+#imc {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2.25rem;
+}
+
+#status {
+  font-size: 1.25rem;
+  color: #cbd5e1;
+}
+
+.normal {
+  color: #16a34a;
+}
+
+.attention {
+  color: #dc2626;
+}
+
+#description {
+  width: 15.5rem;
+}
+
+#more_info {
+  text-align: center;
+  border-top: 1px solid #ffffff34;
+  padding-top: 1.5rem;
+}
+
+#more-infos a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  color: #16a34a;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+#more-infos a:hover {
+  color: #cbd5e1;
+}
+
+.hidden {
+  display: none;
+}
+
+#title {
+  font-size: 2.25rem;
+  position: relative;
+}
+
+#title::after {
+  position: absolute;
+  content: "";
+  width: 8rem;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #fd1b1b;
+  bottom: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  #picture {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #picture {
+    display: none;
+  }
+
+  main {
+    width: 100%;
+    height: 100%;
+  }
+
+  #form {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    justify-content: center;
+  }
+}
