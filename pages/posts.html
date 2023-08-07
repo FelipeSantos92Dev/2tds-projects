@@ -9,28 +9,22 @@
   </head>
   <body>
     <h1>Próximos Posts</h1>
-    <form>
+    <div id="postForm">
       <label for="titulo">Título:</label>
       <input type="text" id="titulo" name="titulo" required />
-
-      <br />
 
       <label for="resumo">Resumo:</label>
       <textarea id="resumo" name="resumo" rows="4" required></textarea>
 
-      <br />
-
       <label for="autor">Autor:</label>
       <input type="text" id="autor" name="autor" required />
-
-      <br />
 
       <label for="data_publicacao">Data de Publicação:</label>
       <input type="date" id="data_publicacao" name="data_publicacao" required />
 
-      <br />
+      <button onclick="savePosts()">Cadastrar</button>
+    </div>
 
-      <input type="submit" value="Enviar" />
-    </form>
+    <div id="exibicao"></div>
   </body>
 </html>

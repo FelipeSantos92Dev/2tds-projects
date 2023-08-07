@@ -3,21 +3,25 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: #f0f0f0;
 }
 
 h1 {
   text-align: center;
+  color: #d30000;
 }
 
-form {
+#postForm {
   max-width: 500px;
   width: 100%;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
+  background-color: #ffffff;
 }
 
 label,
@@ -33,14 +37,15 @@ textarea {
   resize: vertical;
 }
 
-input[type="submit"] {
-  background-color: #4caf50;
+button {
+  background-color: #d30000;
   color: #fff;
   cursor: pointer;
+  width: 100%;
 }
 
-input[type="submit"]:hover {
-  background-color: #45a049;
+button:hover {
+  background-color: #a00000;
 }
 
 #exibicao {
@@ -50,4 +55,30 @@ input[type="submit"]:hover {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.post {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.post h2 {
+  color: #d30000;
+  margin-bottom: 5px;
+}
+
+.post button {
+  background-color: #d30000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.post button:hover {
+  background-color: #a00000;
 }

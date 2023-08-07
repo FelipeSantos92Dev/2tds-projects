@@ -1,22 +1,21 @@
-const form = document.getElementById("postForm");
-const exibicao = document.getElementById("exibicao");
 const posts = [];
+let indexPost = -1;
 
 function exibirPosts() {
-  exibicao.innerHTML = "";
+  let conteudoExibicao = "";
   posts.forEach((post, index) => {
-    const postDiv = document.createElement("div");
-    postDiv.classList.add("post");
-    postDiv.innerHTML = `
-        <h2>${post.titulo}</h2>
-        <p><strong>Resumo:</strong> ${post.resumo}</p>
-        <p><strong>Autor:</strong> ${post.autor}</p>
-        <p><strong>Data de Publicação:</strong> ${post.dataPublicacao}</p>
-        <button onclick="editarPost(${index})">Editar</button>
-        <button onclick="removerPost(${index})">Remover</button>
-      `;
-    exibicao.appendChild(postDiv);
+    conteudoExibicao += `
+       <div class="post">
+         <h2>${post.titulo}</h2>
+         <p><strong>Resumo:</strong> ${post.resumo}</p>
+         <p><strong>Autor:</strong> ${post.autor}</p>
+         <p><strong>Data de Publicação:</strong> ${post.dataPublicacao}</p>
+         <button onclick="editarPost(${index})">Editar</button>
+         <button onclick="removerPost(${index})">Remover</button>
+       </div>
+     `;
   });
+  document.getElementById("exibicao").innerHTML = conteudoExibicao;
 }
 
 function cadastrarPost(titulo, resumo, autor, dataPublicacao) {
@@ -32,42 +31,45 @@ function cadastrarPost(titulo, resumo, autor, dataPublicacao) {
 
 function editarPost(index) {
   const post = posts[index];
-  const novoTitulo = prompt("Novo Título:", post.titulo);
-  const novoResumo = prompt("Novo Resumo:", post.resumo);
-  const novoAutor = prompt("Novo Autor:", post.autor);
-  const novaDataPublicacao = prompt(
-    "Nova Data de Publicação:",
-    post.dataPublicacao
-  );
 
-  if (novoTitulo && novoResumo && novoAutor && novaDataPublicacao) {
-    posts[index] = {
-      titulo: novoTitulo,
-      resumo: novoResumo,
-      autor: novoAutor,
-      dataPublicacao: novaDataPublicacao,
-    };
-    exibirPosts();
-  }
+  document.getElementById("titulo").value = post.titulo;
+  document.getElementById("resumo").value = post.resumo;
+  document.getElementById("autor").value = post.autor;
+  document.getElementById("data_publicacao").value = post.dataPublicacao;
+
+  indexPost = index;
 }
 
 function removerPost(index) {
   posts.splice(index, 1);
+
   exibirPosts();
 }
 
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
+function savePosts() {
   const titulo = document.getElementById("titulo").value;
   const resumo = document.getElementById("resumo").value;
   const autor = document.getElementById("autor").value;
   const dataPublicacao = document.getElementById("data_publicacao").value;
 
-  if (titulo && resumo && autor && dataPublicacao) {
-    cadastrarPost(titulo, resumo, autor, dataPublicacao);
-    form.reset();
-  }
-});
+  document.getElementById("titulo").value = "";
+  document.getElementById("resumo").value = "";
+  document.getElementById("autor").value = "";
+  document.getElementById("data_publicacao").value = "";
 
-// Chame exibirPosts() inicialmente para mostrar posts existentes (se houver)
-exibirPosts();
+  if (indexPost === -1) {
+    if (titulo && resumo && autor && dataPublicacao) {
+      cadastrarPost(titulo, resumo, autor, dataPublicacao);
+    }
+  } else {
+    if (titulo && resumo && autor && dataPublicacao) {
+      posts[indexPost] = {
+        titulo,
+        resumo,
+        autor,
+        dataPublicacao,
+      };
+      exibirPosts();
+    }
+  }
+}
