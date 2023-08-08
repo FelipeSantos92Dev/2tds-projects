@@ -7,5 +7,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Posts</title>
   </head>
-  <body></body>
+  <body>
+    <main>
+      <h1>Próximos Posts</h1>
+
+      <div id="postForm">
+        <div>
+          <label for="title">Título</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+
+        <div>
+          <label for="category">Categoria</label>
+          <input type="text" id="category" name="category" required />
+        </div>
+
+        <div>
+          <label for="resume">Resumo</label>
+          <textarea
+            type="text"
+            id="resume"
+            name="resume"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+
+        <div>
+          <label for="autor">Autor</label>
+          <input type="text" id="autor" name="autor" required />
+        </div>
+
+        <div>
+          <label for="date">Data de Publicação</label>
+          <input type="date" id="date" name="date" required />
+        </div>
+
+        <button>Cadastrar</button>
+      </div>
+    </main>
+  </body>
 </html>
