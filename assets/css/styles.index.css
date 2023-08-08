@@ -1,12 +1,56 @@
+/* Reset de Estilos */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Estilos para o corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Estilos para o cabeçalho */
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Estilos para o conteúdo principal */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para o título principal */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para a lista de links */
 #list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-top: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+#list a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  border-bottom: 1px solid #ddd;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+#list a:hover {
+  background-color: #f5f5f5;
 }

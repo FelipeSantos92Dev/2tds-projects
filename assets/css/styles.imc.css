@@ -168,6 +168,31 @@ img {
   left: 0;
 }
 
+/* Estilos para o botão de volta para home */
+#back-button {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#back-button a {
+  text-decoration: none;
+}
+
+#back-button button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#back-button button:hover {
+  background-color: #0056b3;
+}
+
 @media screen and (max-width: 1024px) {
   #picture {
     display: none;
