@@ -57,3 +57,44 @@ button:hover {
   background-color: #a00000;
   transition: 0.3s;
 }
+
+.itemPost {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.itemPost h2 {
+  color: #a00000;
+  margin-bottom: 5px;
+}
+
+.itemPost button {
+  background-color: #d30000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+#list {
+  max-width: 500px;
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.itemPost button:hover {
+  background-color: #a00000;
+  transition: 0.3s;
+}
+
+.hidden {
+  display: none;
+}

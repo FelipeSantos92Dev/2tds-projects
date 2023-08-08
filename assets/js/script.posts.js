@@ -1,4 +1,5 @@
 const posts = [];
+let postIndex = -1;
 
 function savePost() {
   const title = document.getElementById("title").value;
@@ -8,9 +9,22 @@ function savePost() {
   const date = document.getElementById("date").value;
 
   if (title && category && resume && author && date) {
-    storePost(title, category, resume, author, date);
+    if (postIndex == -1) {
+      storePost(title, category, resume, author, date);
+      cleanFields();
+      showPosts();
+    } else {
+      posts[postIndex] = {
+        title,
+        category,
+        resume,
+        author,
+        date,
+      };
+    }
     cleanFields();
     showPosts();
+    postIndex = -1;
   } else {
     alert("Preencha todos os campos!");
   }
@@ -54,4 +68,16 @@ function showPosts() {
   });
 
   document.getElementById("list").innerHTML = showContent;
+}
+
+function editPost(index) {
+  const post = posts[index];
+
+  document.getElementById("title").value = post.title;
+  document.getElementById("category").value = post.category;
+  document.getElementById("resume").value = post.resume;
+  document.getElementById("author").value = post.author;
+  document.getElementById("date").value = post.date;
+
+  postIndex = index;
 }
