@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+/* Reset CSS */
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #18181b;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  gap: 3.5rem;
+}
+
+img {
+  width: 31rem;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  color: #f8fafc;
+  background-color: #262626;
+  border-radius: 8px;
+  gap: 2rem;
+}
+
+#calculator {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.input-box label {
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #cbd5e1;
+}
+
+.input-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #3f3f46;
+  padding: 0.3rem;
+  border-radius: 4px;
+  margin-top: 2px;
+}
+
+.input-field input {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  font-size: 1.3rem;
+  color: #f8fafc;
+  padding: 0 0.5rem;
+}
+
+.input-field input::-webkit-outer-spin-button,
+.input-field input::-webkit-inner-spin-button {
+  appearance: none;
+}
+
+.unit,
+.icon {
+  color: #cbd5e1;
+  font-size: 1.3rem;
+  padding: 0.6rem 1rem;
+}
+
+#calculate {
+  background-color: #fd1b1b;
+  border: none;
+  color: #f8fafc;
+  font-size: 1.25rem;
+  font-weight: bold;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 3px;
+}
+
+.input-field input:focus {
+  outline: none;
+}
+
+#result {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  border-top: 1px solid #ffffff34;
+  padding: 0.75rem 0;
+}
+
+#imc {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2.25rem;
+}
+
+#status {
+  font-size: 1.25rem;
+  color: #cbd5e1;
+}
+
+.normal {
+  color: #16a34a;
+}
+
+.attention {
+  color: #dc2626;
+}
+
+#description {
+  width: 15.5rem;
+}
+
+#more_info {
+  text-align: center;
+  border-top: 1px solid #ffffff34;
+  padding-top: 1.5rem;
+}
+
+#more-infos a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  color: #16a34a;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+#more-infos a:hover {
+  color: #cbd5e1;
+}
+
+.hidden {
+  display: none;
+}
+
+#title {
+  font-size: 2.25rem;
+  position: relative;
+}
+
+#title::after {
+  position: absolute;
+  content: "";
+  width: 8rem;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #fd1b1b;
+  bottom: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  #picture {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #picture {
+    display: none;
+  }
+
+  main {
+    width: 100%;
+    height: 100%;
+  }
+
+  #form {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    justify-content: center;
+  }
+}
