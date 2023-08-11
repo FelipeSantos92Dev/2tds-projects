@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="pr-BR">
   <head>
     <meta charset="utf-8" />
-    <title>Todo List App in JavaScript | CodingNepal</title>
     <link rel="stylesheet" href="../assets/css/styles.todo.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -12,20 +11,21 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <title>Todo List</title>
   </head>
   <body>
     <div class="wrapper">
       <div class="task-input">
         <i class="fa-solid fa-bars"></i>
-        <input type="text" placeholder="Add a new task" />
+        <input type="text" placeholder="Adicione uma nova tarefa" />
       </div>
       <div class="controls">
         <div class="filters">
-          <span class="active" id="all">All</span>
-          <span id="pending">Pending</span>
-          <span id="completed">Completed</span>
+          <span class="active" id="all">Todas</span>
+          <span id="pending">Pendentes</span>
+          <span id="completed">Finalizadas</span>
         </div>
-        <button class="clear-btn">Clear All</button>
+        <button class="clear-btn">Apagar Todas</button>
       </div>
       <ul class="task-box"></ul>
     </div>
