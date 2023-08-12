@@ -9,6 +9,7 @@ function addTask() {
     };
 
     renderTask(task);
+    document.getElementById("newTask").value = "";
   }
 }
 
@@ -23,9 +24,9 @@ function renderTask(task) {
     <li>
       <span>${task.title}</span>
       <div>
-        <button class="action"><i class="fa-solid fa-check"></i></button>
-        <button class="action"><i class="fa-solid fa-pencil"></i></button>
-        <button class="action"><i class="fa-solid fa-trash"></i></button>
+        <button class="action" onclick="markTask(${task.id})"><i class="fa-solid fa-check"></i></button>
+        <button class="action" onclick="editTask(${task.id})"><i class="fa-solid fa-pencil"></i></button>
+        <button class="action" onclick="deleteTask(${task.id})"><i class="fa-solid fa-trash"></i></button>
       </div>
     </li>
   `;
