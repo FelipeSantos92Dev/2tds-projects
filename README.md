@@ -2,15 +2,15 @@
 
 ## Lista de Projetos
 
-### IMC
+### - IMC
 
-### Posts
+### - Posts
 
-### Tasks List
+### - Tasks List
 
-#### HTML
+- #### HTML
 
-- Criar estrutura de pastas
-- Versionar projeto
-- Criar formulário e estilizar
-- Criar lista com exemplos fictícios
+  - Criar estrutura de pastas
+  - Versionar projeto
+  - Criar formulário e estilizar
+  - Criar lista com exemplos fictícios e estilizar
