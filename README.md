@@ -14,3 +14,4 @@
   - Versionar projeto
   - Criar formulário e estilizar
   - Criar lista com exemplos fictícios e estilizar
+  - Lógica JavaScript para adicionar itens na lista
