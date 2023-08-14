@@ -88,6 +88,19 @@ main {
   transition: 0.3s;
 }
 
+.taskDone {
+  color: #f0f0f0;
+  background-color: #18af4d;
+}
+
+/* .titleDone {
+  text-decoration: line-through;
+} */
+
+#editModal {
+  display: none;
+}
+
 #modalBackground {
   position: fixed;
   top: 0;
@@ -99,4 +112,25 @@ main {
   justify-content: center;
   align-items: center;
   z-index: 1;
+  display: none;
+}
+
+#back-button {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#back-button a {
+  text-decoration: none;
+}
+
+#back-button button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }

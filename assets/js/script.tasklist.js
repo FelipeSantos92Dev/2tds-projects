@@ -22,14 +22,20 @@ function renderTask(task) {
 
   element += `
     <li>
-      <span>${task.title}</span>
+      <span id="${task.title}-${task.id}" class="titleDone">${task.title}</span>
       <div>
-        <button class="action" onclick="markTask(${task.id})"><i class="fa-solid fa-check"></i></button>
-        <button class="action" onclick="editTask(${task.id})"><i class="fa-solid fa-pencil"></i></button>
-        <button class="action" onclick="deleteTask(${task.id})"><i class="fa-solid fa-trash"></i></button>
+        <button id="${task.id}" class="action" onclick="markTask(${task.id})"><i class="fa-solid fa-check"></i></button>
       </div>
     </li>
   `;
 
   document.getElementById("list").innerHTML += element;
 }
+
+function markTask(id) {
+  document.getElementById(id).classList.toggle("taskDone");
+  document.getElementById(id).classList.toggle("titleDone");
+}
+
+// <button class="action" onclick="editTask(${task.id})"><i class="fa-solid fa-pencil"></i></button>
+// <button class="action" onclick="deleteTask(${task.id})"><i class="fa-solid fa-trash"></i></button>
