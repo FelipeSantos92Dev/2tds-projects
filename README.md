@@ -24,3 +24,8 @@
     - Criar função para salvar itens editados
     - Criar função para cancelar edição de itens
     - Criar função para limpar lista -->
+
+- #### CSS
+  - background-color: #181818;
+  - background-color: #2a2a2a;
+  - background-color: #3f3f3f;
