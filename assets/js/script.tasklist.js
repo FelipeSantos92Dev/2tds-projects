@@ -6,9 +6,42 @@ class Task {
   }
 }
 
+class TaskList {
+  constructor() {
+    this.tasks = [];
+  }
+
+  addTask(task) {
+    this.tasks.push(task);
+  }
+
+  markTask(id) {
+    this.tasks.forEach((task) => {
+      if (task.id == id) {
+        task.status = !task.status;
+      }
+    });
+    document.getElementById(id + "-title").classList.toggle("titleDone");
+    document.getElementById(id + "-button").classList.toggle("taskDone");
+  }
+
+  deleteTask(id) {
+    this.tasks = this.tasks.filter((task) => task.id !== id);
+  }
+
+  updateTask(id, title) {
+    this.tasks.forEach((task) => {
+      if (task.id == id) {
+        task.title = title;
+      }
+    });
+  }
+}
+
+const taskList = new TaskList();
 let flag = -1;
 
-function addTask() {
+function createTask() {
   const newTask = document.getElementById("newTask").value;
 
   if (flag < 0) {
@@ -16,57 +49,53 @@ function addTask() {
       document.getElementById("error").classList.add("hidden");
       const task = new Task(generateId(), newTask, false);
 
-      renderTask(task);
+      taskList.addTask(task);
+
       document.getElementById("newTask").value = "";
     } else {
       document.getElementById("error").classList.remove("hidden");
     }
   } else {
-    const taskSpan = document.getElementById(flag + "-title");
     if (newTask !== null) {
-      taskSpan.textContent = newTask;
+      editTask(flag, newTask);
       document.getElementById("newTask").value = "";
     }
   }
+  renderTasks();
 }
 
 function generateId() {
   return Math.floor(Math.random() * 3000);
 }
 
-function renderTask(task) {
-  let element = "";
-
-  element += `
-    <li id="${task.id}">
-    <span id="${task.id}-title">${task.title}</span>
-      <div>
-        <button id="${task.id}-button" class="action"
-          onclick="markTask(${task.id})"><i class="fa-solid fa-check"></i>
-        </button>
-        <button class="action edit" onclick="editTask(${task.id})"><i class="fa-solid fa-pencil"></i></button>
-        <button class="action remove" onclick="deleteTask(${task.id})"><i class="fa-solid fa-trash"></i></button>
-      </div>
-    </li>
-  `;
-
-  document.getElementById("list").innerHTML += element;
+function doneTask(id) {
+  taskList.markTask(id);
 }
 
-function markTask(id) {
-  document.getElementById(id + "-button").classList.toggle("taskDone");
-  document.getElementById(id + "-title").classList.toggle("titleDone");
+function removeTask(id) {
+  taskList.deleteTask(id);
+  renderTasks();
 }
 
 function editTask(id) {
-  const taskSpan = document.getElementById(id + "-title");
-  if (taskSpan) {
-    document.getElementById("newTask").value = taskSpan.textContent;
-    document.getElementById("newTask").focus();
-    flag = id;
-  }
+  console.log(id);
 }
 
-function deleteTask(id) {
-  document.getElementById(id).remove();
+function renderTasks() {
+  let element = "";
+  taskList.tasks.forEach((task) => {
+    element += `
+         <li id="${task.id}">
+         <span id="${task.id}-title">${task.title}</span>
+           <div>
+             <button id="${task.id}-button" class="action"
+               onclick="doneTask(${task.id})"><i class="fa-solid fa-check"></i>
+             </button>
+             <button class="action edit" onclick="editTask(${task.id})"><i class="fa-solid fa-pencil"></i></button>
+             <button class="action remove" onclick="removeTask(${task.id})"><i class="fa-solid fa-trash"></i></button>
+           </div>
+         </li>
+       `;
+  });
+  document.getElementById("list").innerHTML = element;
 }
