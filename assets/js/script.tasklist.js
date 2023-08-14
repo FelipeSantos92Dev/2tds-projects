@@ -1,15 +1,32 @@
+class Task {
+  constructor(id, title, status) {
+    this.id = id;
+    this.title = title;
+    this.status = status;
+  }
+}
+
+let flag = -1;
+
 function addTask() {
   const newTask = document.getElementById("newTask").value;
 
-  if (newTask) {
-    let task = {
-      id: generateId(),
-      title: newTask,
-      status: "pending",
-    };
+  if (flag < 0) {
+    if (newTask) {
+      document.getElementById("error").classList.add("hidden");
+      const task = new Task(generateId(), newTask, false);
 
-    renderTask(task);
-    document.getElementById("newTask").value = "";
+      renderTask(task);
+      document.getElementById("newTask").value = "";
+    } else {
+      document.getElementById("error").classList.remove("hidden");
+    }
+  } else {
+    const taskSpan = document.getElementById(flag + "-title");
+    if (newTask !== null) {
+      taskSpan.textContent = newTask;
+      document.getElementById("newTask").value = "";
+    }
   }
 }
 
@@ -21,10 +38,14 @@ function renderTask(task) {
   let element = "";
 
   element += `
-    <li>
-      <span id="${task.title}-${task.id}" class="titleDone">${task.title}</span>
+    <li id="${task.id}">
+    <span id="${task.id}-title">${task.title}</span>
       <div>
-        <button id="${task.id}" class="action" onclick="markTask(${task.id})"><i class="fa-solid fa-check"></i></button>
+        <button id="${task.id}-button" class="action"
+          onclick="markTask(${task.id})"><i class="fa-solid fa-check"></i>
+        </button>
+        <button class="action edit" onclick="editTask(${task.id})"><i class="fa-solid fa-pencil"></i></button>
+        <button class="action remove" onclick="deleteTask(${task.id})"><i class="fa-solid fa-trash"></i></button>
       </div>
     </li>
   `;
@@ -33,9 +54,19 @@ function renderTask(task) {
 }
 
 function markTask(id) {
-  document.getElementById(id).classList.toggle("taskDone");
-  document.getElementById(id).classList.toggle("titleDone");
+  document.getElementById(id + "-button").classList.toggle("taskDone");
+  document.getElementById(id + "-title").classList.toggle("titleDone");
 }
 
-// <button class="action" onclick="editTask(${task.id})"><i class="fa-solid fa-pencil"></i></button>
-// <button class="action" onclick="deleteTask(${task.id})"><i class="fa-solid fa-trash"></i></button>
+function editTask(id) {
+  const taskSpan = document.getElementById(id + "-title");
+  if (taskSpan) {
+    document.getElementById("newTask").value = taskSpan.textContent;
+    document.getElementById("newTask").focus();
+    flag = id;
+  }
+}
+
+function deleteTask(id) {
+  document.getElementById(id).remove();
+}

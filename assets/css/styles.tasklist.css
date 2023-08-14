@@ -88,14 +88,48 @@ main {
   transition: 0.3s;
 }
 
+.remove {
+  background-color: #ff0000;
+}
+
+.remove:hover {
+  background-color: #bd1515;
+  transition: 0.3s;
+}
+
+.edit {
+  background-color: #007bff;
+}
+
+.edit:hover {
+  background-color: #0069d9;
+  transition: 0.3s;
+}
+
 .taskDone {
   color: #f0f0f0;
+  font-weight: bold;
   background-color: #18af4d;
 }
 
-/* .titleDone {
+.taskDone:hover {
+  background-color: #1ac54f;
+  transition: 0.3s;
+}
+
+.titleDone {
   text-decoration: line-through;
-} */
+}
+
+#error {
+  color: #ff0000;
+  font-size: 0.8rem; /* 13px / 16px = 0.8rem */
+  margin-bottom: 1.25rem; /* 20px / 16px = 1.25rem */
+}
+
+.hidden {
+  display: none;
+}
 
 #editModal {
   display: none;
