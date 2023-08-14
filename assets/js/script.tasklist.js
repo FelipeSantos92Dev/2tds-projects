@@ -77,8 +77,8 @@ function removeTask(id) {
   renderTasks();
 }
 
-function editTask(id) {
-  console.log(id);
+function editTask(id, title) {
+  console.log(id, title);
 }
 
 function renderTasks() {
@@ -91,7 +91,7 @@ function renderTasks() {
              <button id="${task.id}-button" class="action"
                onclick="doneTask(${task.id})"><i class="fa-solid fa-check"></i>
              </button>
-             <button class="action edit" onclick="editTask(${task.id})"><i class="fa-solid fa-pencil"></i></button>
+             <button class="action edit" onclick="editTask(${task.id}, ${task.title})"><i class="fa-solid fa-pencil"></i></button>
              <button class="action remove" onclick="removeTask(${task.id})"><i class="fa-solid fa-trash"></i></button>
            </div>
          </li>
