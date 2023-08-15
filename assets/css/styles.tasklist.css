@@ -9,8 +9,8 @@
 }
 
 body {
-  background-color: #181818;
-  color: #f0f0f0;
+  background-color: #f5f5f5; /* Tom suave de branco */
+  color: #333333; /* Cor do texto principal */
 }
 
 main {
@@ -20,7 +20,7 @@ main {
   padding: 0 1.25rem; /* 20px / 16px = 1.25rem */
   margin-top: 3.125rem; /* 50px / 16px = 3.125rem */
   margin-bottom: 3.125rem; /* 50px / 16px = 3.125rem */
-  background-color: #2a2a2a;
+  background-color: #ffffff; /* Tom suave de branco */
   padding: 3.125rem; /* 50px / 16px = 3.125rem */
   border-radius: 0.75rem; /* 12px / 16px = 0.75rem */
 }
@@ -35,9 +35,9 @@ main {
   width: 40rem; /* 640px / 16px = 40rem */
   padding: 1rem; /* 16px / 16px = 1rem */
   border-radius: 0.75rem; /* 12px / 16px = 0.75rem */
-  border: 1px solid #3f3f3f;
-  background-color: #3f3f3f;
-  color: #f0f0f0;
+  border: 1px solid #dddddd; /* Tom suave de cinza */
+  background-color: #f5f5f5; /* Tom suave de branco */
+  color: #333333; /* Cor do texto principal */
   outline: none;
   font-size: 1.2rem; /* 19px / 16px = 1.2rem */
 }
@@ -45,15 +45,15 @@ main {
 #form button {
   width: 3rem; /* 48px / 16px = 3rem */
   border-radius: 0.75rem; /* 12px / 16px = 0.75rem */
-  border: 1px solid #3f3f3f;
-  background-color: #3f3f3f;
-  color: #f0f0f0;
+  border: 1px solid #dddddd; /* Tom suave de cinza */
+  background-color: #f5f5f5; /* Tom suave de branco */
+  color: #333333; /* Cor do texto principal */
   outline: none;
   font-size: 1.25rem; /* 20px / 16px = 1.25rem */
 }
 
 #form button:hover {
-  background-color: #4f4f4f;
+  background-color: #f0f0f0; /* Tom ainda mais suave de cinza */
   cursor: pointer;
   transition: 0.3s;
 }
@@ -64,7 +64,7 @@ main {
 
 #list li {
   padding: 1.25rem; /* 20px / 16px = 1.25rem */
-  background-color: #3f3f3f;
+  background-color: #f5f5f5; /* Tom suave de branco */
   border-radius: 0.75rem; /* 12px / 16px = 0.75rem */
   display: flex;
   justify-content: space-between;
@@ -74,46 +74,48 @@ main {
 
 .action {
   border-radius: 1.25rem; /* 20px / 16px = 1.25rem */
-  border: 1px solid #3f3f3f;
+  border: 1px solid #dddddd; /* Tom suave de cinza */
   width: 3rem; /* 48px / 16px = 3rem */
   height: 3rem; /* 48px / 16px = 3rem */
-  background-color: #2a2a2a;
-  color: #f0f0f0;
+  background-color: #f5f5f5; /* Tom suave de branco */
+  color: #333333; /* Cor do texto principal */
   cursor: pointer;
   margin-right: 0.5rem; /* 8px / 16px = 0.5rem */
 }
 
 .action:hover {
-  background-color: #4f4f4f;
+  background-color: #f0f0f0; /* Tom ainda mais suave de cinza */
   transition: 0.3s;
 }
 
 .remove {
-  background-color: #ff0000;
+  background-color: #ff0000; /* Vermelho */
+  color: #f0f0f0; /* Branco */
 }
 
 .remove:hover {
-  background-color: #bd1515;
+  background-color: #bd1515; /* Vermelho mais escuro */
   transition: 0.3s;
 }
 
 .edit {
-  background-color: #007bff;
+  background-color: #007bff; /* Azul */
+  color: #f0f0f0; /* Branco */
 }
 
 .edit:hover {
-  background-color: #0069d9;
+  background-color: #0069d9; /* Azul mais escuro */
   transition: 0.3s;
 }
 
 .taskDone {
-  color: #f0f0f0;
+  color: #f0f0f0; /* Cor do texto principal */
   font-weight: bold;
-  background-color: #18af4d;
+  background-color: #18af4d; /* Verde */
 }
 
 .taskDone:hover {
-  background-color: #1ac54f;
+  background-color: #1ac54f; /* Verde mais escuro */
   transition: 0.3s;
 }
 
@@ -122,7 +124,7 @@ main {
 }
 
 #error {
-  color: #ff0000;
+  color: #ff0000; /* Vermelho */
   font-size: 0.8rem; /* 13px / 16px = 0.8rem */
   margin-bottom: 1.25rem; /* 20px / 16px = 1.25rem */
 }
@@ -141,7 +143,7 @@ main {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #00000080;
+  background-color: #00000080; /* Tom de preto semitransparente */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -159,12 +161,16 @@ main {
 }
 
 #back-button button {
-  background-color: #007bff;
-  color: #fff;
+  background-color: #007bff; /* Azul */
+  color: #fff; /* Branco */
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
+}
+
+#back-button button:hover {
+  background-color: #0056b3; /* Azul mais escuro */
 }

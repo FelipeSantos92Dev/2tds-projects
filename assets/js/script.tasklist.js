@@ -57,8 +57,9 @@ function createTask() {
     }
   } else {
     if (newTask !== null) {
-      editTask(flag, newTask);
+      taskList.updateTask(flag, newTask);
       document.getElementById("newTask").value = "";
+      flag = -1;
     }
   }
   renderTasks();
@@ -77,21 +78,33 @@ function removeTask(id) {
   renderTasks();
 }
 
-function editTask(id, title) {
-  console.log(id, title);
+function editTask(id) {
+  const taskSpan = document.getElementById(id + "-title");
+  if (taskSpan) {
+    document.getElementById("newTask").value = taskSpan.textContent;
+    document.getElementById("newTask").focus();
+    flag = id;
+  }
 }
 
 function renderTasks() {
   let element = "";
+  let checkedTaskSpan = "";
+  let checkedTaskButton = "";
   taskList.tasks.forEach((task) => {
+    if (task.status == true) {
+      checkedTaskSpan = `<span id="${task.id}-title" class="titleDone">${task.title}</span>`;
+      checkedTaskButton = `<button class="action edit taskDone" onclick="editTask(${task.id})"><i class="fa-solid fa-pencil"></i></button>`;
+    } else {
+      checkedTaskSpan = `<span id="${task.id}-title">${task.title}</span>`;
+      checkedTaskButton = `<button class="action edit" onclick="editTask(${task.id})"><i class="fa-solid fa-pencil"></i></button>`;
+    }
     element += `
          <li id="${task.id}">
-         <span id="${task.id}-title">${task.title}</span>
+         ${checkedTaskSpan}
            <div>
-             <button id="${task.id}-button" class="action"
-               onclick="doneTask(${task.id})"><i class="fa-solid fa-check"></i>
-             </button>
-             <button class="action edit" onclick="editTask(${task.id}, ${task.title})"><i class="fa-solid fa-pencil"></i></button>
+             ${checkedTaskButton}
+             <button class="action edit" onclick="editTask(${task.id})"><i class="fa-solid fa-pencil"></i></button>
              <button class="action remove" onclick="removeTask(${task.id})"><i class="fa-solid fa-trash"></i></button>
            </div>
          </li>
