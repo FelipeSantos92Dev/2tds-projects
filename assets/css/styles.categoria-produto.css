@@ -1,4 +1,4 @@
-/* style.css */
+/* styles.categoria-produto.css */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -7,60 +7,67 @@ body {
 }
 
 .container {
-  max-width: 800px;
+  max-width: 50rem; /* Equivalent to 800px */
   margin: 0 auto;
-  padding: 20px;
+  padding: 1.25rem; /* Equivalent to 20px */
   background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.3125rem; /* Equivalent to 5px */
+  box-shadow: 0px 0px 0.625rem rgba(0, 0, 0, 0.1); /* Equivalent to 10px */
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem; /* Equivalent to 20px */
 }
 
 h2 {
-  margin-top: 20px;
+  margin-top: 1.25rem; /* Equivalent to 20px */
 }
 
 .form-container {
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 5px;
+  border: 0.0625rem solid #ccc; /* Equivalent to 1px */
+  padding: 0.9375rem; /* Equivalent to 15px */
+  margin-bottom: 1.25rem; /* Equivalent to 20px */
+  border-radius: 0.3125rem; /* Equivalent to 5px */
   background-color: #f9f9f9;
 }
 
 .form-container label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 0.3125rem; /* Equivalent to 5px */
 }
 
 .form-container input[type="text"],
 .form-container input[type="number"],
 .form-container select {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+  padding: 0.625rem; /* Equivalent to 10px */
+  margin-bottom: 0.625rem; /* Equivalent to 10px */
+  border: 0.0625rem solid #ccc; /* Equivalent to 1px */
+  border-radius: 0.1875rem; /* Equivalent to 3px */
+  box-sizing: border-box;
 }
 
 .btn {
-  background-color: #007bff;
+  background-color: #fd1b1b;
   color: #fff;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem; /* Equivalent to 10px 20px */
   border: none;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 0.1875rem; /* Equivalent to 3px */
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover style */
+.btn:hover {
+  background-color: #e60e0e;
 }
 
 .list-container {
   background-color: #f9f9f9;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.9375rem; /* Equivalent to 15px */
+  border-radius: 0.3125rem; /* Equivalent to 5px */
+  box-shadow: 0px 0px 0.625rem rgba(0, 0, 0, 0.1); /* Equivalent to 10px */
 }
 
 .list-container ul {
@@ -69,16 +76,22 @@ h2 {
 }
 
 .list-container li {
-  margin-bottom: 10px;
-  padding: 10px;
+  margin-bottom: 0.625rem; /* Equivalent to 10px */
+  padding: 0.625rem;
   background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.1875rem;
 }
 
-@media (max-width: 600px) {
+/* Reduce border radius for selects */
+.form-container select {
+  border-radius: 0.125rem; /* Equivalent to 2px */
+}
+
+@media (max-width: 37.5rem) {
+  /* Equivalent to 600px */
   .container {
     max-width: 100%;
-    padding: 10px;
+    padding: 0.625rem; /* Equivalent to 10px */
   }
 }

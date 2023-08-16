@@ -1,131 +1,140 @@
 // main.js
 
-// Categoria
-class Categoria {
-  constructor(id, nome) {
+class Category {
+  constructor(id, name) {
     this.id = id;
-    this.nome = nome;
-    this.produtos = [];
+    this.name = name;
+    this.products = [];
   }
 }
 
-// Produto
-class Produto {
-  constructor(id, nome, preco, categoria) {
+// Product
+class Product {
+  constructor(id, name, price, category) {
     this.id = id;
-    this.nome = nome;
-    this.preco = preco;
-    this.categoria = categoria;
+    this.name = name;
+    this.price = price;
+    this.category = category;
   }
 }
 
-// CategoriaService
-class CategoriaService {
+// CategoryService
+class CategoryService {
   constructor() {
-    this.categorias = [];
-    this.nextCategoriaId = 1;
+    this.categories = [];
+    this.nextCategoryId = 1;
   }
 
-  adicionarCategoria(nome) {
-    const id = this.nextCategoriaId++;
-    const categoria = new Categoria(id, nome);
-    this.categorias.push(categoria);
-    return categoria;
+  addCategory(name) {
+    const id = this.nextCategoryId++;
+    const category = new Category(id, name);
+    this.categories.push(category);
+    return category;
   }
 
-  buscarCategoriaPorId(id) {
-    return this.categorias.find((categoria) => categoria.id === id);
+  getCategoryById(id) {
+    return this.categories.find((category) => category.id === id);
   }
 
-  listarCategorias() {
-    return this.categorias;
+  listCategories() {
+    return this.categories;
   }
 }
 
-// ProdutoService
-class ProdutoService {
+// ProductService
+class ProductService {
   constructor() {
-    this.produtos = [];
-    this.nextProdutoId = 1;
+    this.products = [];
+    this.nextProductId = 1;
   }
 
-  adicionarProduto(nome, preco, categoria) {
-    const id = this.nextProdutoId++;
-    const produto = new Produto(id, nome, preco, categoria);
-    categoria.produtos.push(produto);
-    this.produtos.push(produto);
-    return produto;
+  addProduct(name, price, category) {
+    const id = this.nextProductId++;
+    const product = new Product(id, name, price, category);
+    category.products.push(product);
+    this.products.push(product);
+    return product;
   }
 
-  buscarProdutoPorId(id) {
-    return this.produtos.find((produto) => produto.id === id);
+  getProductById(id) {
+    return this.products.find((product) => product.id === id);
   }
 
-  listarProdutos() {
-    return this.produtos;
+  listProducts() {
+    return this.products;
   }
 }
 
-// Criar instâncias dos serviços de categorias e produtos
-const categoriaService = new CategoriaService();
-const produtoService = new ProdutoService();
+// Create instances of category and product services
+const categoryService = new CategoryService();
+const productService = new ProductService();
 
-// Função para popular o menu de seleção de categorias
-function popularSelecaoCategorias() {
-  const selectElement = document.getElementById("produtoCategoria");
-  selectElement.innerHTML = ""; // Limpa os elementos existentes
+// Function to populate the category selection menu
+function populateCategorySelection() {
+  const selectElement = document.getElementById("productCategory");
+  selectElement.innerHTML = ""; // Clear existing elements
 
-  categoriaService.listarCategorias().forEach((categoria) => {
+  categoryService.listCategories().forEach((category) => {
     const optionElement = document.createElement("option");
-    optionElement.value = categoria.nome;
-    optionElement.textContent = categoria.nome;
+    optionElement.value = category.name;
+    optionElement.textContent = category.name;
     selectElement.appendChild(optionElement);
   });
 }
 
-// Função para exibir categorias e produtos na página
-function exibirCategoriasEProdutos() {
-  const categoriasLista = document.getElementById("categoriasLista");
-  categoriasLista.innerHTML = "";
+// Function to display categories and products on the page
+function displayCategoriesAndProducts() {
+  const categoriesList = document.getElementById("categoriesList");
+  categoriesList.innerHTML = "";
 
-  categoriaService.listarCategorias().forEach((categoria) => {
-    const categoriaItem = document.createElement("li");
-    categoriaItem.textContent = `Categoria: ${categoria.nome}`;
-    const produtosLista = document.createElement("ul");
+  categoryService.listCategories().forEach((category) => {
+    const categoryItem = document.createElement("li");
+    categoryItem.textContent = `Category: ${category.name}`;
+    const productsList = document.createElement("ul");
 
-    categoria.produtos.forEach((produto) => {
-      const produtoItem = document.createElement("li");
-      produtoItem.textContent = `Produto: ${produto.nome}, Preço: ${produto.preco}, Categoria: ${categoria.nome}`;
-      produtosLista.appendChild(produtoItem);
+    category.products.forEach((product) => {
+      const productItem = document.createElement("li");
+      productItem.textContent = `Product: ${product.name}, Price: ${product.price}, Category: ${category.name}`;
+      productsList.appendChild(productItem);
     });
 
-    categoriaItem.appendChild(produtosLista);
-    categoriasLista.appendChild(categoriaItem);
+    categoryItem.appendChild(productsList);
+    categoriesList.appendChild(categoryItem);
   });
 }
 
-// Capturar o formulário de categoria e adicionar um manipulador de evento
+// Capture the category form and add an event handler
 function createCategory() {
-  const categoriaNome = document.getElementById("categoriaNome").value;
-  categoriaService.adicionarCategoria(categoriaNome);
-  popularSelecaoCategorias();
-  exibirCategoriasEProdutos();
+  const categoryName = document.getElementById("categoryName").value;
+  categoryService.addCategory(categoryName);
+  populateCategorySelection();
+  displayCategoriesAndProducts();
+  clearFormFields(); // Clear form fields
 }
 
-// Capturar o formulário de produto e adicionar um manipulador de evento
+// Capture the product form and add an event handler
 function createProduct() {
-  const produtoNome = document.getElementById("produtoNome").value;
-  const produtoPreco = parseFloat(
-    document.getElementById("produtoPreco").value
+  const productName = document.getElementById("productName").value;
+  const productPrice = parseFloat(
+    document.getElementById("productPrice").value
   );
-  const produtoCategoria = document.getElementById("produtoCategoria").value;
-  const categoria = categoriaService
-    .listarCategorias()
-    .find((categoria) => categoria.nome === produtoCategoria);
-  produtoService.adicionarProduto(produtoNome, produtoPreco, categoria);
-  exibirCategoriasEProdutos();
+  const productCategory = document.getElementById("productCategory").value;
+  const category = categoryService
+    .listCategories()
+    .find((category) => category.name === productCategory);
+  productService.addProduct(productName, productPrice, category);
+  displayCategoriesAndProducts();
+  clearFormFields(); // Clear form fields
 }
 
-// Inicializar a página
-popularSelecaoCategorias();
-exibirCategoriasEProdutos();
+// Function to clear form fields
+function clearFormFields() {
+  document.getElementById("categoryName").value = "";
+  document.getElementById("productName").value = "";
+  document.getElementById("productPrice").value = "";
+  document.getElementById("productCategory").value = "";
+}
+
+// Initialize the page
+populateCategorySelection();
+displayCategoriesAndProducts();

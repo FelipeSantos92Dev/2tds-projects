@@ -4,39 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../assets/css/styles.categoria-produto.css" />
-    <title>Categorias e Produtos</title>
+    <title>Categories and Products</title>
   </head>
   <body>
     <div class="container">
-      <h1>Categorias e Produtos</h1>
+      <h1>Categories and Products</h1>
 
-      <!-- Formulário de criação de categoria -->
-      <div class="form-container" id="categoriaForm">
-        <h2>Criar Categoria</h2>
-        <label for="categoriaNome">Nome da Categoria:</label>
-        <input type="text" id="categoriaNome" required />
-        <button class="btn" onclick="createCategory()">Criar Categoria</button>
+      <!-- Category creation form -->
+      <div class="form-container" id="categoryForm">
+        <h2>Create Category</h2>
+        <label for="categoryName">Category Name:</label>
+        <input type="text" id="categoryName" required />
+        <button class="btn" onclick="createCategory()">Create Category</button>
       </div>
 
-      <!-- Formulário de criação de produto -->
-      <div class="form-container" id="produtoForm">
-        <h2>Criar Produto</h2>
-        <label for="produtoNome">Nome do Produto:</label>
-        <input type="text" id="produtoNome" required />
-        <label for="produtoPreco">Preço:</label>
-        <input type="number" id="produtoPreco" step="0.01" required />
-        <label for="produtoCategoria">Categoria:</label>
-        <select id="produtoCategoria" required>
-          <!-- As opções serão preenchidas dinamicamente via JavaScript -->
+      <!-- Product creation form -->
+      <div class="form-container" id="productForm">
+        <h2>Create Product</h2>
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" required />
+        <label for="productPrice">Price:</label>
+        <input type="number" id="productPrice" step="0.01" required />
+        <label for="productCategory">Category:</label>
+        <select id="productCategory" required>
+          <!-- Options will be dynamically filled via JavaScript -->
         </select>
-        <button class="btn" onclick="createProduct()">Criar Produto</button>
+        <button class="btn" onclick="createProduct()">Create Product</button>
       </div>
 
-      <!-- Lista de categorias e produtos -->
+      <!-- List of categories and products -->
       <div class="list-container">
-        <h2>Categorias e Produtos</h2>
-        <ul id="categoriasLista"></ul>
-        <ul id="produtosLista"></ul>
+        <h2>Categories and Products</h2>
+        <ul id="categoriesList"></ul>
+        <ul id="productsList"></ul>
       </div>
     </div>
 
