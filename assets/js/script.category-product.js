@@ -79,15 +79,24 @@ function displayCategoriesAndProducts() {
         <div class="categoriesList">
           <span><b>Categoria:</b> ${category.name}</span>
           <div>
-            <button class="editCategoryButton">Editar</button>
-            <button class="deleteCategoryButton">Excluir</button>
+            <button class="editButton"><i class="fa-solid fa-pencil"></i></button>
+            <button class="deleteButton"><i class="fa-solid fa-trash"></i></button>
           </div>
         </div>
-      </li>
-    `;
+        <ul class="productsListByCategory">`; // Abra a lista de produtos dentro da categoria
     category.products.forEach((product) => {
-      html += `<ul><li><b>Produto:</b> ${product.name} - <b>Preço:</b> R$ ${product.price} - <b>Categoria:</b> ${category.name}</li></ul>`;
+      html += `
+                <li>
+                  <div class="productList">
+                    <span><b>Produto:</b> ${product.name} - <b>Preço:</b> R$ ${product.price}</span>
+                    <div>
+                      <button class="editButton"><i class="fa-solid fa-pencil"></i></button>
+                      <button class="deleteButton"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                  </div>
+                </li>`;
     });
+    html += `</ul></li>`; // Feche a lista de produtos dentro da categoria
   });
 
   document.getElementById("categoriesList").innerHTML = html;

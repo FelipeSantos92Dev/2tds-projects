@@ -57,12 +57,14 @@ h2 {
   border: none;
   cursor: pointer;
   border-radius: 0.1875rem; /* Equivalent to 3px */
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 /* Button hover style */
 .btn:hover {
   background-color: #e60e0e;
+  color: #fff;
+  transform: scale(1.05);
 }
 
 .list-container {
@@ -113,9 +115,31 @@ h2 {
   align-items: center;
 }
 
-.editCategoryButton {
-  background-color: #eeff00;
-  color: #000;
+/* Estilização da lista de produtos */
+.productsListByCategory {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.productsListByCategory li {
+  margin-top: 0.625rem; /* Equivalent to 10px */
+  padding: 0.625rem;
+  background-color: #f4f4f4;
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.1875rem;
+}
+
+.productList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.625rem; /* Equivalent to 10px */
+}
+
+.editButton {
+  background-color: #007bff;
+  color: #fff;
   padding: 0.625rem 1.25rem; /* Equivalent to 10px 20px */
   border: none;
   cursor: pointer;
@@ -124,11 +148,12 @@ h2 {
 }
 
 /* Button hover style */
-.editCategoryButton:hover {
-  background-color: #d9e200;
+.editButton:hover {
+  background-color: #0069d9;
+  transform: scale(1.05);
 }
 
-.deleteCategoryButton {
+.deleteButton {
   background-color: #000;
   color: #fff;
   padding: 0.625rem 1.25rem; /* Equivalent to 10px 20px */
@@ -139,8 +164,23 @@ h2 {
 }
 
 /* Button hover style */
-.deleteCategoryButton:hover {
+.deleteButton:hover {
   background-color: #1a1a1a;
+  transform: scale(1.05);
+}
+
+/* Animação de fade-in */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 37.5rem) {
