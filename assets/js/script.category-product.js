@@ -23,7 +23,8 @@ class CategoryService {
   }
 
   addCategory(name) {
-    const id = this.nextCategoryId++;
+    const id = this.nextCategoryId;
+    this.nextCategoryId++;
     const category = new Category(id, name);
     this.categories.push(category);
     return category;
@@ -31,10 +32,6 @@ class CategoryService {
 
   getCategoryById(id) {
     return this.categories.find((category) => category.id === id);
-  }
-
-  listCategories() {
-    return this.categories;
   }
 }
 
@@ -45,7 +42,8 @@ class ProductService {
   }
 
   addProduct(name, price, category) {
-    const id = this.nextProductId++;
+    const id = this.nextProductId;
+    this.nextProductId++;
     const product = new Product(id, name, price, category);
     category.products.push(product);
     this.products.push(product);
@@ -54,10 +52,6 @@ class ProductService {
 
   getProductById(id) {
     return this.products.find((product) => product.id === id);
-  }
-
-  listProducts() {
-    return this.products;
   }
 }
 
@@ -68,8 +62,8 @@ const productService = new ProductService();
 function populateCategorySelection() {
   let options = "";
 
-  categoryService.listCategories().forEach((category) => {
-    options += `<option value="${category.name}">${category.name}</option>`;
+  categoryService.categories.forEach((category) => {
+    options += `<option value="${category.id}">${category.name}</option>`;
   });
 
   document.getElementById("productCategory").innerHTML = options;
@@ -79,8 +73,18 @@ function populateCategorySelection() {
 function displayCategoriesAndProducts() {
   let html = "";
 
-  categoryService.listCategories().forEach((category) => {
-    html += `<li><b>Categoria:</b> ${category.name}</li>`;
+  categoryService.categories.forEach((category) => {
+    html += `
+      <li>
+        <div class="categoriesList">
+          <span><b>Categoria:</b> ${category.name}</span>
+          <div>
+            <button class="editCategoryButton">Editar</button>
+            <button class="deleteCategoryButton">Excluir</button>
+          </div>
+        </div>
+      </li>
+    `;
     category.products.forEach((product) => {
       html += `<ul><li><b>Produto:</b> ${product.name} - <b>Preço:</b> R$ ${product.price} - <b>Categoria:</b> ${category.name}</li></ul>`;
     });
@@ -105,9 +109,9 @@ function createProduct() {
     document.getElementById("productPrice").value
   );
   const productCategory = document.getElementById("productCategory").value;
-  const category = categoryService
-    .listCategories()
-    .find((category) => category.name === productCategory);
+  const category = categoryService.categories.find(
+    (category) => category.id == productCategory
+  );
 
   productService.addProduct(productName, productPrice, category);
   displayCategoriesAndProducts();

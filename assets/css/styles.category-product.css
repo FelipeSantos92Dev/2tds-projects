@@ -107,6 +107,42 @@ h2 {
   border-radius: 0.125rem; /* Equivalent to 2px */
 }
 
+.categoriesList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editCategoryButton {
+  background-color: #eeff00;
+  color: #000;
+  padding: 0.625rem 1.25rem; /* Equivalent to 10px 20px */
+  border: none;
+  cursor: pointer;
+  border-radius: 0.1875rem; /* Equivalent to 3px */
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover style */
+.editCategoryButton:hover {
+  background-color: #d9e200;
+}
+
+.deleteCategoryButton {
+  background-color: #000;
+  color: #fff;
+  padding: 0.625rem 1.25rem; /* Equivalent to 10px 20px */
+  border: none;
+  cursor: pointer;
+  border-radius: 0.1875rem; /* Equivalent to 3px */
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover style */
+.deleteCategoryButton:hover {
+  background-color: #1a1a1a;
+}
+
 @media (max-width: 37.5rem) {
   /* Equivalent to 600px */
   .container {
