@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/styles.category-product.css" />
+    <title>Categorias & Produtos</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🛍️ Categorias & Produtos</h1>
+
+      <!-- Category creation form -->
+      <div class="form-container" id="categoryForm">
+        <h2>📁 Criar Categoria</h2>
+        <label for="categoryName">Nome da Categoria:</label>
+        <input type="text" id="categoryName" required />
+        <button class="btn" onclick="createCategory()">Criar Categoria</button>
+      </div>
+
+      <!-- Product creation form -->
+      <div class="form-container" id="productForm">
+        <h2>📦 Criar Produto</h2>
+        <div id="productInfos">
+          <div class="productInputs">
+            <label for="productName">Nome do Produto:</label>
+            <input type="text" id="productName" required />
+          </div>
+          <div class="productInputs">
+            <label for="productPrice">Preço:</label>
+            <input type="number" id="productPrice" step="0.01" required />
+          </div>
+        </div>
+        <label for="productCategory">Categoria:</label>
+        <select id="productCategory" required>
+          <!-- Options will be dynamically filled via JavaScript -->
+        </select>
+        <button class="btn" onclick="createProduct()">Criar Produto</button>
+      </div>
+
+      <!-- List of categories and products -->
+      <div class="list-container">
+        <h2>📋 Categorias e Produtos</h2>
+        <ul id="categoriesList"></ul>
+        <ul id="productsList"></ul>
+      </div>
+    </div>
+
+    <script src="../assets/js/script.category-product.js"></script>
+  </body>
+</html>

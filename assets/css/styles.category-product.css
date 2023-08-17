@@ -88,6 +88,20 @@ h2 {
   border-radius: 0.1875rem;
 }
 
+#productInfos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.625rem; /* Equivalent to 10px */
+}
+
+.productInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
 /* Reduce border radius for selects */
 .form-container select {
   border-radius: 0.125rem; /* Equivalent to 2px */

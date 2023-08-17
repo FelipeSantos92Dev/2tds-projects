@@ -1,5 +1,3 @@
-// main.js
-
 class Category {
   constructor(id, name) {
     this.id = id;
@@ -8,7 +6,6 @@ class Category {
   }
 }
 
-// Product
 class Product {
   constructor(id, name, price, category) {
     this.id = id;
@@ -41,7 +38,6 @@ class CategoryService {
   }
 }
 
-// ProductService
 class ProductService {
   constructor() {
     this.products = [];
@@ -65,42 +61,32 @@ class ProductService {
   }
 }
 
-// Create instances of category and product services
 const categoryService = new CategoryService();
 const productService = new ProductService();
 
 // Function to populate the category selection menu
 function populateCategorySelection() {
-  const selectElement = document.getElementById("productCategory");
-  selectElement.innerHTML = ""; // Clear existing elements
+  let options = "";
 
   categoryService.listCategories().forEach((category) => {
-    const optionElement = document.createElement("option");
-    optionElement.value = category.name;
-    optionElement.textContent = category.name;
-    selectElement.appendChild(optionElement);
+    options += `<option value="${category.name}">${category.name}</option>`;
   });
+
+  document.getElementById("productCategory").innerHTML = options;
 }
 
 // Function to display categories and products on the page
 function displayCategoriesAndProducts() {
-  const categoriesList = document.getElementById("categoriesList");
-  categoriesList.innerHTML = "";
+  let html = "";
 
   categoryService.listCategories().forEach((category) => {
-    const categoryItem = document.createElement("li");
-    categoryItem.textContent = `Category: ${category.name}`;
-    const productsList = document.createElement("ul");
-
+    html += `<li><b>Categoria:</b> ${category.name}</li>`;
     category.products.forEach((product) => {
-      const productItem = document.createElement("li");
-      productItem.textContent = `Product: ${product.name}, Price: ${product.price}, Category: ${category.name}`;
-      productsList.appendChild(productItem);
+      html += `<ul><li><b>Produto:</b> ${product.name} - <b>Preço:</b> R$ ${product.price} - <b>Categoria:</b> ${category.name}</li></ul>`;
     });
-
-    categoryItem.appendChild(productsList);
-    categoriesList.appendChild(categoryItem);
   });
+
+  document.getElementById("categoriesList").innerHTML = html;
 }
 
 // Capture the category form and add an event handler
@@ -122,6 +108,7 @@ function createProduct() {
   const category = categoryService
     .listCategories()
     .find((category) => category.name === productCategory);
+
   productService.addProduct(productName, productPrice, category);
   displayCategoriesAndProducts();
   clearFormFields(); // Clear form fields
@@ -134,7 +121,3 @@ function clearFormFields() {
   document.getElementById("productPrice").value = "";
   document.getElementById("productCategory").value = "";
 }
-
-// Initialize the page
-populateCategorySelection();
-displayCategoriesAndProducts();
