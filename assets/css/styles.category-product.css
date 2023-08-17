@@ -23,7 +23,7 @@ h1 {
 }
 
 h2 {
-  margin-top: 1.25rem; /* Equivalent to 20px */
+  margin-top: 0; /* Equivalent to 20px */
 }
 
 .form-container {
