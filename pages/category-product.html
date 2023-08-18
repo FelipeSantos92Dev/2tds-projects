@@ -56,8 +56,14 @@
         <select id="productCategory" required>
           <!-- Options will be dynamically filled via JavaScript -->
         </select>
-        <button class="btn" onclick="createProduct()">Criar Produto</button>
-        <button class="editButton hidden" onclick="updateProduct()">
+        <button id="createProductButton" class="btn" onclick="createProduct()">
+          Criar Produto
+        </button>
+        <button
+          id="editProductButton"
+          class="editButton hidden"
+          onclick="updateProduct()"
+        >
           Editar Produto
         </button>
       </div>

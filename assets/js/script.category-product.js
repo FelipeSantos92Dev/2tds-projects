@@ -117,8 +117,8 @@ function displayCategoriesAndProducts() {
                   <div class="productList">
                     <span><b>Produto:</b> ${product.name} - <b>Preço:</b> R$ ${product.price}</span>
                     <div>
-                      <button class="editButton"><i class="fa-solid fa-pencil"></i></button>
-                      <button class="deleteButton"><i class="fa-solid fa-trash"></i></button>
+                      <button class="editButton" onclick="editProduct(${product.id})"><i class="fa-solid fa-pencil"></i></button>
+                      <button class="deleteButton" onclick="deleteProduct(${product.id})"><i class="fa-solid fa-trash"></i></button>
                     </div>
                   </div>
                 </li>`;
@@ -170,6 +170,39 @@ function updateCategory() {
 
   document.getElementById("editCategoryButton").classList.add("hidden");
   document.getElementById("createCategoryButton").classList.remove("hidden");
+  populateCategorySelection();
+  displayCategoriesAndProducts();
+  clearFormFields(); // Clear form fields
+}
+
+function editProduct(id) {
+  const product = productService.getProductById(id);
+  document.getElementById("productName").value = product.name;
+  document.getElementById("productPrice").value = product.price;
+  document.getElementById("productCategory").value = product.category.id;
+  document.getElementById("productName").focus();
+
+  document.getElementById("editProductButton").classList.remove("hidden");
+  document.getElementById("createProductButton").classList.add("hidden");
+
+  aux = id;
+}
+
+function updateProduct() {
+  const productName = document.getElementById("productName").value;
+  const productPrice = parseFloat(
+    document.getElementById("productPrice").value
+  );
+  const productCategory = document.getElementById("productCategory").value;
+  const category = categoryService.categories.find(
+    (category) => category.id == productCategory
+  );
+
+  productService.updateProduct(aux, productName, productPrice, category);
+  aux = -1;
+
+  document.getElementById("editProductButton").classList.add("hidden");
+  document.getElementById("createProductButton").classList.remove("hidden");
   displayCategoriesAndProducts();
   clearFormFields(); // Clear form fields
 }
