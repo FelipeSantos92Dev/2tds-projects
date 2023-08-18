@@ -20,13 +20,22 @@
       <!-- Category creation form -->
       <div class="form-container" id="categoryForm">
         <h2>📁 Criar Categoria</h2>
-        <input
-          type="text"
-          id="categoryName"
-          placeholder="Nome da Categoria:"
-          required
-        />
-        <button class="btn" onclick="createCategory()">Criar Categoria</button>
+        <label for="categoryName">Nome da Categoria:</label>
+        <input type="text" id="categoryName" required />
+        <button
+          id="createCategoryButton"
+          class="btn"
+          onclick="createCategory()"
+        >
+          Criar Categoria
+        </button>
+        <button
+          id="editCategoryButton"
+          class="editButton hidden"
+          onclick="updateCategory()"
+        >
+          Editar Categoria
+        </button>
       </div>
 
       <!-- Product creation form -->
@@ -34,21 +43,12 @@
         <h2>📦 Criar Produto</h2>
         <div id="productInfos">
           <div class="productInputs">
-            <input
-              type="text"
-              id="productName"
-              placeholder="Nome do Produto:"
-              required
-            />
+            <label for="productName">Nome do Produto:</label>
+            <input type="text" id="productName" required />
           </div>
           <div class="productInputs">
-            <input
-              type="number"
-              id="productPrice"
-              placeholder="Preço (R$):"
-              step="0.01"
-              required
-            />
+            <label for="productPrice">Preço:</label>
+            <input type="number" id="productPrice" step="0.01" required />
           </div>
         </div>
 
@@ -57,6 +57,9 @@
           <!-- Options will be dynamically filled via JavaScript -->
         </select>
         <button class="btn" onclick="createProduct()">Criar Produto</button>
+        <button class="editButton hidden" onclick="updateProduct()">
+          Editar Produto
+        </button>
       </div>
 
       <!-- List of categories and products -->

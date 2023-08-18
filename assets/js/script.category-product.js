@@ -33,6 +33,18 @@ class CategoryService {
   getCategoryById(id) {
     return this.categories.find((category) => category.id === id);
   }
+
+  updateCategory(id, name) {
+    const category = this.getCategoryById(id);
+    category.name = name;
+  }
+
+  // Delete category and all products
+  deleteCategory(id) {
+    const category = this.getCategoryById(id);
+    const index = this.categories.indexOf(category);
+    this.categories.splice(index, 1);
+  }
 }
 
 class ProductService {
@@ -53,10 +65,25 @@ class ProductService {
   getProductById(id) {
     return this.products.find((product) => product.id === id);
   }
+
+  updateProduct(id, name, price, category) {
+    const product = this.getProductById(id);
+    product.name = name;
+    product.price = price;
+    product.category = category;
+  }
+
+  deleteProduct(id) {
+    const product = this.getProductById(id);
+    const index = this.products.indexOf(product);
+    this.products.splice(index, 1);
+  }
 }
 
 const categoryService = new CategoryService();
 const productService = new ProductService();
+
+let aux = -1;
 
 // Function to populate the category selection menu
 function populateCategorySelection() {
@@ -79,8 +106,8 @@ function displayCategoriesAndProducts() {
         <div class="categoriesList">
           <span><b>Categoria:</b> ${category.name}</span>
           <div>
-            <button class="editButton"><i class="fa-solid fa-pencil"></i></button>
-            <button class="deleteButton"><i class="fa-solid fa-trash"></i></button>
+            <button class="editButton" onclick="editCategory(${category.id})"><i class="fa-solid fa-pencil"></i></button>
+            <button class="deleteButton" onclick=""><i class="fa-solid fa-trash"></i></button>
           </div>
         </div>
         <ul class="productsListByCategory">`; // Abra a lista de produtos dentro da categoria
@@ -123,6 +150,26 @@ function createProduct() {
   );
 
   productService.addProduct(productName, productPrice, category);
+  displayCategoriesAndProducts();
+  clearFormFields(); // Clear form fields
+}
+
+function editCategory(id) {
+  const category = categoryService.getCategoryById(id);
+  document.getElementById("categoryName").value = category.name;
+  document.getElementById("categoryName").focus();
+  document.getElementById("editCategoryButton").classList.remove("hidden");
+  document.getElementById("createCategoryButton").classList.add("hidden");
+  aux = id;
+}
+
+function updateCategory() {
+  const categoryName = document.getElementById("categoryName").value;
+  categoryService.updateCategory(aux, categoryName);
+  aux = -1;
+
+  document.getElementById("editCategoryButton").classList.add("hidden");
+  document.getElementById("createCategoryButton").classList.remove("hidden");
   displayCategoriesAndProducts();
   clearFormFields(); // Clear form fields
 }

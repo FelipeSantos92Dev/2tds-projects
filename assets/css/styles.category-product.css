@@ -23,7 +23,7 @@ h1 {
 }
 
 h2 {
-  margin-top: 0; /* Equivalent to 20px */
+  margin-top: 1.25rem; /* Equivalent to 20px */
 }
 
 .form-container {
@@ -172,6 +172,10 @@ h2 {
 /* Animação de fade-in */
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
+}
+
+.hidden {
+  display: none !important;
 }
 
 @keyframes fadeIn {
