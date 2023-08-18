@@ -20,8 +20,12 @@
       <!-- Category creation form -->
       <div class="form-container" id="categoryForm">
         <h2>📁 Criar Categoria</h2>
-        <label for="categoryName">Nome da Categoria:</label>
-        <input type="text" id="categoryName" required />
+        <input
+          type="text"
+          id="categoryName"
+          placeholder="Nome da Categoria"
+          required
+        />
         <button
           id="createCategoryButton"
           class="btn"
@@ -43,12 +47,21 @@
         <h2>📦 Criar Produto</h2>
         <div id="productInfos">
           <div class="productInputs">
-            <label for="productName">Nome do Produto:</label>
-            <input type="text" id="productName" required />
+            <input
+              type="text"
+              id="productName"
+              placeholder="Nome do Produto"
+              required
+            />
           </div>
           <div class="productInputs">
-            <label for="productPrice">Preço:</label>
-            <input type="number" id="productPrice" step="0.01" required />
+            <input
+              type="number"
+              id="productPrice"
+              step="0.01"
+              placeholder="Preço (R$)"
+              required
+            />
           </div>
         </div>
 
