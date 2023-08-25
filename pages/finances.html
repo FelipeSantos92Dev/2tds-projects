@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciador de Finanças</title>
+    <link rel="stylesheet" href="../assets/css/styles.finances.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Gerenciador de Finanças</h1>
+      <div id="back-button">
+        <a href="../index.html">
+          <button>Voltar para Home</button>
+        </a>
+      </div>
+    </header>
+
+    <section class="expenses">
+      <h2>Adicionar Transação</h2>
+      <div class="input-container">
+        <input type="text" id="descricao" placeholder="Descrição" />
+        <p id="erroDescricao" class="error-message"></p>
+      </div>
+      <div class="input-container">
+        <input type="number" id="valor" placeholder="Valor" />
+        <p id="erroValor" class="error-message"></p>
+      </div>
+      <div class="input-container">
+        <select id="tipo">
+          <option value="despesa">Despesa</option>
+          <option value="receita">Receita</option>
+        </select>
+      </div>
+      <div class="button-container">
+        <button onclick="adicionarTransacao()">Adicionar Transação</button>
+      </div>
+    </section>
+
+    <section id="resume">
+      <div class="balance">
+        <h2>Saldo</h2>
+        <h3 id="saldoAtual">R$ 0,00</h3>
+      </div>
+      <div class="total-incomes">
+        <h2>Receitas Totais</h2>
+        <h3 id="totalReceitas">R$ 0,00</h3>
+      </div>
+      <div class="total-expenses">
+        <h2>Despesas Totais</h2>
+        <h3 id="totalDespesas">R$ 0,00</h3>
+      </div>
+    </section>
+
+    <section id="list">
+      <div class="incomes-list">
+        <h2>Receitas Registradas</h2>
+        <ul id="listaReceitas"></ul>
+      </div>
+      <div class="expenses-list">
+        <h2>Despesas Registradas</h2>
+        <ul id="listaDespesas"></ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2023 Gerenciador de Finanças</p>
+    </footer>
+
+    <script src="../assets/js/script.finances.js"></script>
+  </body>
+</html>

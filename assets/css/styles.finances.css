@@ -1,0 +1,158 @@
+/* Reset de Estilos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos Gerais */
+body {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+/* Estilos para o botão de volta para home */
+
+#back-button a {
+  text-decoration: none;
+}
+
+#back-button button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#back-button button:hover {
+  background-color: #0056b3;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Estilos da Seção de Despesas */
+.expenses {
+  margin: 2rem auto;
+  width: 80%;
+  max-width: 800px;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.input-container {
+  margin-bottom: 1rem;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+button {
+  background-color: #333;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Estilos da Seção de Resumo */
+#resume {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem auto;
+  width: 80%;
+  max-width: 800px;
+}
+
+.balance,
+.total-incomes,
+.total-expenses {
+  text-align: center;
+}
+
+/* Estilos da Seção de Listas */
+#list {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem auto;
+  gap: 2rem;
+  width: 80%;
+  max-width: 800px;
+}
+
+.incomes-list,
+.expenses-list {
+  width: 50%; /* Reduzido para 50% para encaixar o espaço entre as seções */
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  overflow-y: auto; /* Adiciona a barra de rolagem vertical */
+  max-height: 300px; /* Define a altura máxima da lista com barra de rolagem */
+}
+
+/* Cores para Receitas e Despesas */
+.incomes-list {
+  background-color: #d0f0c0; /* Tom de verde para receitas */
+}
+
+.expenses-list {
+  background-color: #f0c0c0; /* Tom de vermelho para despesas */
+}
+
+h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+  .expenses,
+  .incomes-list,
+  .expenses-list {
+    width: 100%;
+  }
+}

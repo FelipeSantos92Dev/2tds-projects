@@ -1,0 +1,174 @@
+/* Define estilos gerais para o corpo da página */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+}
+
+#title {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: normal;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#title h1 {
+  text-align: center;
+}
+
+main {
+  display: flex;
+}
+
+/* Estilos para o botão de volta para home */
+#back-button {
+  margin-top: 20px;
+  text-align: right;
+}
+
+#back-button a {
+  text-decoration: none;
+}
+
+#back-button button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#back-button button:hover {
+  background-color: #0056b3;
+}
+
+/* Define estilos para o formulário de cadastro de carros */
+.car-form {
+  background-color: white; /* Cor de fundo do formulário */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-width: 400px; /* Largura mínima do formulário */
+  max-width: 400px; /* Largura máxima do formulário */
+  height: fit-content;
+  margin: 20px; /* Espaçamento em volta do formulário */
+}
+
+/* Estilos para rótulos, campos de entrada e botão no formulário */
+.car-form input {
+  display: block;
+  margin-bottom: 10px;
+  width: calc(
+    100% - 16px
+  ); /* Subtrai 16px para acomodar o espaçamento interno */
+  padding: 8px; /* Adiciona espaçamento interno */
+  border: 1px solid #ccc; /* Adiciona uma borda leve */
+  border-radius: 4px;
+}
+
+/* Estilos para o botão */
+.car-form button {
+  width: 100%; /* Botão ocupa toda a largura disponível */
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #007bff; /* Cor de fundo do botão */
+  color: white; /* Cor do texto no botão */
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilos para Mensagens de Erro */
+.error-message {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+/* Estilos para Campos de Entrada com Erros */
+.input-container.error {
+  border: 1px solid red;
+}
+
+/* Define estilos para a lista de cards de carros */
+.car-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  margin-left: 20px;
+  max-height: 800px;
+  overflow-y: auto;
+}
+
+/* Define estilos para cada card de carro */
+.car-card {
+  flex: 0 0 calc(33.33% - 20px); /* Define a largura dos cards para 1/3 da tela, subtraindo o espaçamento */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  transition: transform 0.2s, box-shadow 0.2s;
+  max-height: 400px; /* Aumenta a altura máxima para acomodar o conteúdo */
+  max-width: 360px; /* Aumenta a largura máxima para acomodar o conteúdo */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilos ao passar o mouse por cima de um card */
+.car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para as imagens dentro dos cards */
+.car-card img {
+  max-width: 100%;
+  max-height: 200px; /* Define uma altura máxima para as imagens */
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Estilos para o título dos cards */
+.car-card h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+/* Estilos para os parágrafos nos cards */
+.car-card p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  main {
+    flex-direction: column;
+  }
+
+  .car-form {
+    min-width: none;
+    margin-left: 20px; /* Posiciona o formulário à esquerda da tela */
+    margin-top: 20px; /* Posiciona o formulário à esquerda da tela */
+  }
+
+  .car-list {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    max-height: none;
+  }
+}

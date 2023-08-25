@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/styles.rentcar.css" />
+    <title>Locação de Carros</title>
+  </head>
+  <body>
+    <div id="title">
+      <h1>Aluguel de Carros</h1>
+      <div id="back-button">
+        <a href="../index.html">
+          <button>Voltar para Home</button>
+        </a>
+      </div>
+    </div>
+    <main>
+      <div class="car-form">
+        <h2>Cadastrar Novo Carro</h2>
+        <div class="input-container">
+          <input type="text" id="marca" placeholder="Marca" />
+          <p id="marcaError" class="error-message"></p>
+        </div>
+        <div class="input-container">
+          <input type="text" id="modelo" placeholder="Modelo" />
+          <p id="modeloError" class="error-message"></p>
+        </div>
+        <div class="input-container">
+          <input type="number" id="ano" placeholder="Ano" required />
+          <p id="anoError" class="error-message"></p>
+        </div>
+        <div class="input-container">
+          <input type="text" id="cor" placeholder="Cor" required />
+          <p id="corError" class="error-message"></p>
+        </div>
+        <div class="input-container">
+          <input type="number" id="quilometragem" placeholder="Km" required />
+          <p id="quilometragemError" class="error-message"></p>
+        </div>
+        <div class="input-container">
+          <input type="number" id="preco" placeholder="Preço R$" required />
+          <p id="precoError" class="error-message"></p>
+        </div>
+        <div class="input-container">
+          <input type="url" id="imagem" placeholder="Imagem" required />
+          <p id="imagemError" class="error-message"></p>
+        </div>
+
+        <button id="cadastrar" onclick="criarCarro()">Cadastrar</button>
+      </div>
+      <div class="car-list" id="carList">
+        <!-- Car cards will be dynamically added here -->
+      </div>
+    </main>
+    <script src="../assets/js/script.rentcar.js"></script>
+  </body>
+</html>
