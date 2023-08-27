@@ -1,0 +1,104 @@
+/* Reset de estilos para garantir consistência */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li,
+form {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Garante que o conteúdo preencha a altura mínima da tela */
+}
+
+header {
+  background-color: #1d7044;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+h2 {
+  color: #1d7044;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+}
+
+section {
+  flex: 1; /* Ocupa o espaço restante na tela */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+section h2 {
+  color: #1d7044;
+  margin-bottom: 1rem;
+}
+
+#form {
+  width: 100%;
+  max-width: 400px; /* Limita a largura do formulário */
+}
+
+#form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #1d7044;
+}
+
+#form input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#form button {
+  background-color: #1d7044;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#form button:hover {
+  background-color: #155437;
+}
+
+#lista-pets li {
+  margin-bottom: 0.5rem;
+}
+
+footer {
+  background-color: #1d7044;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  flex-shrink: 0; /* Evita que o rodapé seja reduzido quando o conteúdo é pequeno */
+}
