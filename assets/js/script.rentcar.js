@@ -54,7 +54,7 @@ function criarCarro() {
 
     todosCarros.adicionarCarro(novoCarro);
 
-    limparCampos();
+    // limparCampos();
     mostrarCarros();
   }
 }
