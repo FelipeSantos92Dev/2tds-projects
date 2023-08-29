@@ -28,7 +28,7 @@ header {
 h2 {
   color: #1d7044;
   text-align: center;
-  margin-top: 2rem;
+  font-size: 2rem;
 }
 
 #cadastro {
@@ -36,6 +36,14 @@ h2 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+#main {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+  text-align: center;
+  justify-content: center;
 }
 
 nav ul {
@@ -77,6 +85,7 @@ section h2 {
 #form {
   width: 100%;
   max-width: 400px; /* Limita a largura do formulário */
+  text-align: left;
 }
 
 #form label {
