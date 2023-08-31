@@ -111,7 +111,6 @@ main {
 
 /* Define estilos para cada card de carro */
 .car-card {
-  flex: 0 0 calc(33.33% - 20px); /* Define a largura dos cards para 1/3 da tela, subtraindo o espaçamento */
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 20px;
