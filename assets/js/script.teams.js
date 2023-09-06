@@ -2,10 +2,15 @@
 
 class Equipe {
   constructor(nome, titulares) {
+    this.id = this.gerarId();
     this.nome = nome;
     this.titulares = titulares;
     this.reservas = this.calcularReservas();
     this.totalJogadores = this.calcularTotalJogadores();
+  }
+
+  gerarId() {
+    return Math.floor(Math.random() * 1000);
   }
 
   calcularReservas() {
@@ -22,9 +27,20 @@ class EquipeService {
     this.equipes = [];
   }
 
+  // CRUD = Create, Read, Update, Delete
+  // C = Create
   adicionarEquipe(parametro) {
     this.equipes.push(parametro);
     console.log("Equipes: ", this.equipes);
+  }
+
+  // R = Read
+  listarEquipes() {
+    return this.equipes;
+  }
+
+  listarEquipePorId(id) {
+    return this.equipes.find((equipe) => equipe.id === id);
   }
 }
 
