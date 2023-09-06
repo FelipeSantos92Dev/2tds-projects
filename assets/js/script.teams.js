@@ -1,9 +1,19 @@
 //console.log("script.teams.js loaded");
 
 class Equipe {
-  constructor(nome, quantidade) {
+  constructor(nome, titulares) {
     this.nome = nome;
-    this.quantidade = quantidade;
+    this.titulares = titulares;
+    this.reservas = this.calcularReservas();
+    this.totalJogadores = this.calcularTotalJogadores();
+  }
+
+  calcularReservas() {
+    return Math.floor(this.titulares / 2);
+  }
+
+  calcularTotalJogadores() {
+    return this.titulares + this.reservas;
   }
 }
 
@@ -12,8 +22,8 @@ class EquipeService {
     this.equipes = [];
   }
 
-  adicionarEquipe(equipe) {
-    this.equipes.push(equipe);
+  adicionarEquipe(parametro) {
+    this.equipes.push(parametro);
     console.log("Equipes: ", this.equipes);
   }
 }
@@ -22,7 +32,9 @@ const equipeService = new EquipeService();
 
 function criarEquipe() {
   const nomeDaEquipe = document.getElementById("equipe").value;
-  const quantidadeDeIntegrantes = document.getElementById("quantidade").value;
+  const quantidadeDeIntegrantes = Number(
+    document.getElementById("quantidade").value
+  );
 
   const novaEquipe = new Equipe(nomeDaEquipe, quantidadeDeIntegrantes);
 
