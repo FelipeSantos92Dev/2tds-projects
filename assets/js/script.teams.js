@@ -14,22 +14,11 @@ class EquipeService {
 
   adicionarEquipe(equipe) {
     this.equipes.push(equipe);
-  }
-
-  listarEquipes() {
-    return this.equipes;
-  }
-
-  removerEquipe(equipe) {
-    const index = this.equipes.indexOf(equipe);
-    this.equipes.splice(index, 1);
-  }
-
-  editarEquipe(equipe, novaEquipe) {
-    const index = this.equipes.indexOf(equipe);
-    this.equipes[index] = novaEquipe;
+    console.log("Equipes: ", this.equipes);
   }
 }
+
+const equipeService = new EquipeService();
 
 function criarEquipe() {
   const nomeDaEquipe = document.getElementById("equipe").value;
@@ -37,7 +26,9 @@ function criarEquipe() {
 
   const novaEquipe = new Equipe(nomeDaEquipe, quantidadeDeIntegrantes);
 
-  console.log("Nova equipe: ", novaEquipe);
+  equipeService.adicionarEquipe(novaEquipe);
+
+  //console.log("Nova equipe: ", novaEquipe);
 
   //console.log("Nome da equipe: ", nomeDaEquipe);
   //console.log("Quantidade de integrantes: ", quantidadeDeIntegrantes);
