@@ -49,6 +49,5 @@ Este é um projeto de cadastro de equipes desenvolvido em JavaScript. Com este a
 - [x] Criar botão para atualizar equipe: Crie um botão na interface para acionar a atualização da equipe.
 - [x] Criar função de edição de equipe: Implemente a função que permite editar os atributos da equipe.
 - [x] Teste de funções: Verifique se as funções de atualização estão funcionando corretamente.
-
 - [x] Criar método para deletar equipe: Crie um método que permita excluir uma equipe da lista.
 - [x] Criar função para deletar equipe: Implemente a função que realiza a exclusão de uma equipe.
