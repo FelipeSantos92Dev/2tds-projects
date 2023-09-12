@@ -1,5 +1,3 @@
-//console.log("script.teams.js loaded");
-
 class Equipe {
   constructor(nome, titulares) {
     this.id = this.gerarId();
@@ -31,7 +29,6 @@ class EquipeService {
   // C = Create
   adicionarEquipe(parametro) {
     this.equipes.push(parametro);
-    console.log("Equipes: ", this.equipes);
   }
 
   // R = Read
@@ -39,79 +36,135 @@ class EquipeService {
     return this.equipes;
   }
 
-  listarEquipePorId(id) {
-    return this.equipes.find((equipe) => equipe.id === id);
+  listarEquipesPorId(parametro) {
+    return this.equipes.find((equipe) => equipe.id == parametro);
+  }
+
+  // U = Update
+  atualizarEquipe(id, nome, titulares) {
+    const equipe = this.listarEquipesPorId(id);
+
+    equipe.nome = nome;
+    equipe.titulares = titulares;
+    equipe.reservas = equipe.calcularReservas();
+    equipe.totalJogadores = equipe.calcularTotalJogadores();
+
+    return equipe;
+  }
+
+  // D = Delete
+  deletarEquipe(parametro) {
+    return (this.equipes = this.equipes.filter(
+      (equipe) => equipe.id != parametro
+    ));
   }
 }
 
 const equipeService = new EquipeService();
 
-function criarEquipe() {
-  const nomeDaEquipe = document.getElementById("equipe").value;
-  const quantidadeDeIntegrantes = Number(
-    document.getElementById("quantidade").value
-  );
+// alert("Testado!");
 
-  const novaEquipe = new Equipe(nomeDaEquipe, quantidadeDeIntegrantes);
+function criarEquipe() {
+  const nome = document.getElementById("nomeDaEquipe").value;
+  const titulares = Number(document.getElementById("quantidade").value);
+
+  const novaEquipe = new Equipe(nome, titulares);
 
   equipeService.adicionarEquipe(novaEquipe);
 
   listarEquipes();
+  limparInputs();
 
-  //console.log("Nova equipe: ", novaEquipe);
+  // console.log(novaEquipe);
+  // console.log(equipeService.equipes);
 
-  //console.log("Nome da equipe: ", nomeDaEquipe);
-  //console.log("Quantidade de integrantes: ", quantidadeDeIntegrantes);
+  // alert("Nome da equipe: " + nome + "\nQuantidade de titulares: " + titulares);
 }
 
 function listarEquipes() {
-  const listaDeEquipes = equipeService.listarEquipes();
+  const equipes = equipeService.listarEquipes();
 
-  const elementoListaDeEquipes = document.getElementById("lista-de-equipes");
-  elementoListaDeEquipes.innerHTML = "";
+  const elementoLista = document.getElementById("listarEquipes");
+  elementoLista.innerHTML = "";
 
   let content = "";
 
-  listaDeEquipes.forEach((equipe) => {
+  equipes.forEach((equipe) => {
     content += `
-    <div onclick="listarEquipeUnica(${equipe.id})">
-      
-      <p>
-        Nome: ${equipe.nome}
-      </p>
-      
+    <div onclick="listarEquipesPorId(${equipe.id})">
+      <p>Nome: ${equipe.nome}</p>
     </div>
     `;
   });
 
-  elementoListaDeEquipes.innerHTML = content;
+  elementoLista.innerHTML = content;
+  //console.log(equipes);
 }
 
-function listarEquipeUnica(id) {
-  const equipe = equipeService.listarEquipePorId(id);
+function listarEquipesPorId(id) {
+  const equipe = equipeService.listarEquipesPorId(id);
+  document.getElementById("listarEquipeUnica").classList.remove("hidden");
 
-  const elementoEquipe = document.getElementById("equipe-unica");
-  elementoEquipe.innerHTML = "";
+  const elementoLista = document.getElementById("listarEquipeUnica");
+  elementoLista.innerHTML = "";
 
   let content = `
     <div>
-      <p>
-        ID: ${equipe.id}
-      </p>
-      <p>
-        Nome: ${equipe.nome}
-      </p>
-      <p>
-        Total de jogadores: ${equipe.totalJogadores}
-      </p>
-      <p>
-        Jogadores titulares: ${equipe.titulares}
-      </p>
-      <p>
-        Jogadores reservas: ${equipe.reservas}
-      </p>
+      <p> Id: ${equipe.id}</p>
+      <p> Nome: ${equipe.nome}</p>
+      <p> Total de jogadores: ${equipe.totalJogadores}</p>
+      <p> Titulares: ${equipe.titulares}</p>
+      <p> Reservas: ${equipe.reservas}</p>
+      <button onclick="atualizarEquipe(${equipe.id})">Editar</button>
+      <button onclick="deletarEquipe(${equipe.id})">Deletar</button>
     </div>
-    `;
+  `;
 
-  elementoEquipe.innerHTML = content;
+  elementoLista.innerHTML = content;
+
+  //console.log(equipe);
+}
+
+let aux = null;
+
+function atualizarEquipe(id) {
+  const equipe = equipeService.listarEquipesPorId(id);
+
+  document.getElementById("nomeDaEquipe").value = equipe.nome;
+  document.getElementById("quantidade").value = equipe.titulares;
+
+  document.getElementById("botaoCadastrar").classList.add("hidden");
+  document.getElementById("botaoEditar").classList.remove("hidden");
+
+  aux = id;
+}
+
+function editarEquipe() {
+  const nome = document.getElementById("nomeDaEquipe").value;
+  const titulares = Number(document.getElementById("quantidade").value);
+
+  equipeService.atualizarEquipe(aux, nome, titulares);
+
+  listarEquipes();
+
+  document.getElementById("botaoCadastrar").classList.remove("hidden");
+  document.getElementById("botaoEditar").classList.add("hidden");
+
+  document.getElementById("listarEquipeUnica").classList.add("hidden");
+  limparInputs();
+
+  aux = null;
+}
+
+function limparInputs() {
+  document.getElementById("nomeDaEquipe").value = "";
+  document.getElementById("quantidade").value = "";
+}
+
+function deletarEquipe(id) {
+  equipeService.deletarEquipe(id);
+
+  listarEquipes();
+
+  document.getElementById("listarEquipeUnica").classList.add("hidden");
 }

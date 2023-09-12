@@ -11,19 +11,23 @@
       <h1>Cadastro de Equipes</h1>
 
       <div>
-        <label for="equipe">Nome da equipe</label>
-        <input type="text" id="equipe" />
+        <label for="nomeDaEquipe">Nome da Equipe</label>
+        <input id="nomeDaEquipe" type="text" />
 
-        <label for="">Quantidade de jogadores</label>
-        <input type="number" id="quantidade" />
+        <label for="quantidade">Jogadores Titulares</label>
+        <input id="quantidade" type="number" />
 
-        <button onclick="criarEquipe()">Cadastrar</button>
+        <button id="botaoCadastrar" onclick="criarEquipe()">Cadastrar</button>
+        <button id="botaoEditar" class="hidden" onclick="editarEquipe()">
+          Editar Equipe
+        </button>
       </div>
     </main>
 
     <div>
-      <div id="lista-de-equipes"></div>
-      <div id="equipe-unica"></div>
+      <div id="listarEquipes"></div>
+
+      <div id="listarEquipeUnica"></div>
     </div>
     <script src="../assets/js/script.teams.js"></script>
   </body>
